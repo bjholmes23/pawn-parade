@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#3a2466">
+<title>Pawn Parade</title>
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="app">
+  <header id="top">
+    <div class="logo small" aria-label="Pawn Parade"><span class="l1">Pawn</span> <span class="l2">Parade</span></div>
+    <div class="tools">
+      <button id="helpBtn" class="icon-btn" aria-label="How to play" data-icon="help"></button>
+      <button id="muteBtn" class="icon-btn" aria-label="Sound on or off"></button>
+      <button id="menuBtn" class="icon-btn" aria-label="New game" data-icon="home"></button>
+    </div>
+  </header>
+  <main id="stage">
+    <div id="boardWrap"><canvas id="board" aria-label="Game board"></canvas></div>
+    <section id="panel">
+      <div id="turn"><span id="turnPawn" class="pawn-ic"></span><span id="turnName">Red</span><span id="turnKind" class="kind-ic"></span></div>
+      <div id="msg">Roll!</div>
+      <div id="diceRow"><div class="die" id="die0"></div><div class="die" id="die1"></div><div id="bonus" class="chip hidden"></div></div>
+      <button id="rollBtn" class="big-btn" disabled><span class="ic" id="rollIc"></span><span id="rollTxt">Roll</span></button>
+    </section>
+  </main>
+</div>
+
+<div id="setup" class="overlay show" role="dialog" aria-label="Choose players">
+  <div class="card setup-card">
+    <div class="logo big"><span class="l1">Pawn</span> <span class="l2">Parade</span></div>
+    <p class="tag">Get all 4 pawns home first!</p>
+    <div id="seats"></div>
+    <div class="row">
+      <button id="setupHelp" class="mid-btn ghost"><span class="ic" data-icon="help"></span>How</button>
+      <button id="startBtn" class="big-btn go"><span class="ic" data-icon="play"></span>Play</button>
+    </div>
+  </div>
+</div>
+
+<div id="help" class="overlay" role="dialog" aria-label="How to play">
+  <div class="card help-card">
+    <h2>How to play</h2>
+    <ul id="helpList"></ul>
+    <button id="helpClose" class="big-btn go">Got it!</button>
+  </div>
+</div>
+
+<div id="winner" class="overlay" role="dialog" aria-label="Winner">
+  <div class="card win-card">
+    <div id="trophy" class="trophy" data-icon="trophy"></div>
+    <div id="winPawn" class="win-pawn"></div>
+    <h2 id="winText">Red wins!</h2>
+    <div class="row">
+      <button id="winMenu" class="mid-btn ghost"><span class="ic" data-icon="home"></span>Menu</button>
+      <button id="againBtn" class="big-btn go"><span class="ic" data-icon="again"></span>Play Again</button>
+    </div>
+  </div>
+</div>
+
+<div id="confirm" class="overlay" role="dialog" aria-label="Quit game?">
+  <div class="card small-card">
+    <h2>New game?</h2>
+    <div class="row">
+      <button id="noQuit" class="mid-btn ghost">No</button>
+      <button id="yesQuit" class="big-btn go">Yes</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/rules.js"></script>
+<script src="js/ai.js"></script>
+<script src="js/icons.js"></script>
+<script src="js/board.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
